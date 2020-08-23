@@ -2,15 +2,17 @@ package pl.sda.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table
-@Getter @Setter
+@Table(name = "PERSON")
+@Getter @Setter @ToString
 public class Person extends BaseEntity {
 
     @Column(name = "first_name", length = 50, nullable = false)
@@ -28,4 +30,6 @@ public class Person extends BaseEntity {
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @OneToOne
+    private Address address;
 }
