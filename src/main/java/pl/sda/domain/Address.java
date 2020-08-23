@@ -1,14 +1,13 @@
 package pl.sda.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")
 @Getter @Setter @ToString
+@NoArgsConstructor
 public class Address extends BaseEntity {
 
     @Column(length = 50, nullable = false)
@@ -20,7 +19,13 @@ public class Address extends BaseEntity {
     @Column(length = 20, nullable = false)
     private String houseNumber;
 
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "person_id")
     private Person person;
+
+    public Address(String city, String street, String houseNumber) {
+        this.city = city;
+        this.street = street;
+        this.houseNumber = houseNumber;
+    }
 }
