@@ -1,8 +1,6 @@
 package pl.sda.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +11,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "PERSON")
 @Getter @Setter @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person extends BaseEntity {
 
     @Column(name = "first_name", length = 50, nullable = false)
