@@ -6,8 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")
-@Getter @Setter @ToString
-@NoArgsConstructor
+@Data
 public class Address extends BaseEntity {
 
     @Column(length = 50, nullable = false)
